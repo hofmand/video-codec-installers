@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<?include Include_common.wxi ?>
+
+	<?define HuffYUV_Platform = "x64" ?>
+	<?define HuffYUV_SourceDir = "$(var.Plugins_UnpackDir)\HuffYUV64" ?>
+	<?define HuffYUV_DllInputName = "huffyuv.dll" ?>
+	<?define HuffYUV_DllOutputName = "huffyuv.dll" ?>
+	<?define HuffYUV_CodecID = "HFYU" ?>
+	<?define HuffYUV_RegName = "Huffyuv lossless codec [$(var.HuffYUV_CodecID)]" ?>
+
+	<Product Id="12F33F25-1B9D-45F9-ACBC-B998B0C8DCCA" Name="HuffYUV 2.1.1 Lossless Video Codec (64-bit)" Language="1033" Version="2.1.1" Manufacturer="Ben Rudiak-Gould" UpgradeCode="298B10B4-A3D4-48EF-A91A-40C91A91756C">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Platform="x64" InstallPrivileges="elevated" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate EmbedCab="yes" />
+
+		<Feature Id="ProductFeature" Title="HuffYUV_$(var.HuffYUV_Platform)" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+
+		<Property Id="ARPNOMODIFY" Value="1" />
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="System64Folder" Name="System64Folder" />
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents">
+			<Component Id="huffyuv_dll" Directory="System64Folder" Guid="354C1B93-5717-4722-89B7-C47A2CF01198" Permanent="yes" Win64="yes">
+				<File Id="huffyuv_dll" KeyPath="yes" Name="$(var.HuffYUV_DllOutputName)" Source="$(var.HuffYUV_SourceDir)\$(var.HuffYUV_DllInputName)" />
+				<RegistryKey Root="HKLM" Key="SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.$(var.HuffYUV_CodecID)">
+					<RegistryValue Name="Description" Type="string" Value="$(var.HuffYUV_RegName)" />
+					<RegistryValue Name="Driver" Type="string" Value="$(var.HuffYUV_DllOutputName)" />
+					<RegistryValue Name="FriendlyName" Type="string" Value="$(var.HuffYUV_RegName)" />
+				</RegistryKey>
+				<RegistryKey Root="HKLM" Key="Software\Microsoft\Windows NT\CurrentVersion\drivers.desc">
+					<RegistryValue Name="$(var.HuffYUV_DllOutputName)" Type="string" Value="$(var.HuffYUV_RegName)" />
+				</RegistryKey>
+				<RegistryKey Root="HKLM" Key="Software\Microsoft\Windows NT\CurrentVersion\Drivers32">
+					<RegistryValue Name="VIDC.$(var.HuffYUV_CodecID)" Type="string" Value="$(var.HuffYUV_DllOutputName)" />
+				</RegistryKey>
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>
