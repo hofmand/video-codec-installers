@@ -12,6 +12,11 @@
 	<Product Id="E1E9EE80-4DBA-4F62-9C2A-031B10E98A10" Name="HuffYUV 2.1.1 Lossless Video Codec (32-bit)" Language="1033" Version="2.1.1" Manufacturer="Ben Rudiak-Gould" UpgradeCode="3b1bd4c8-3763-44a6-a3ab-ca911c76b806">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Platform="x86" InstallPrivileges="elevated" />
 
+		<Property Id="MSIUSEREALADMINDETECTION" Value="1" />
+		<Condition Message="Installation requires Administrator privileges">
+			<![CDATA[Privileged]]>
+		</Condition>
+
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 		<MediaTemplate EmbedCab="yes" />
 
