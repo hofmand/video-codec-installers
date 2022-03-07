@@ -8,9 +8,14 @@
 	<?define HuffYUV_DllOutputName = "huffyuv.dll" ?>
 	<?define HuffYUV_CodecID = "HFYU" ?>
 	<?define HuffYUV_RegName = "Huffyuv lossless codec [$(var.HuffYUV_CodecID)]" ?>
-
+	
 	<Product Id="12F33F25-1B9D-45F9-ACBC-B998B0C8DCCA" Name="HuffYUV 2.1.1 Lossless Video Codec (64-bit)" Language="1033" Version="2.1.1" Manufacturer="Ben Rudiak-Gould" UpgradeCode="298B10B4-A3D4-48EF-A91A-40C91A91756C">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Platform="x64" InstallPrivileges="elevated" />
+
+		<Property Id="MSIUSEREALADMINDETECTION" Value="1" />
+		<Condition Message="Installation requires Administrator privileges">
+			<![CDATA[Privileged]]>
+		</Condition>
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 		<MediaTemplate EmbedCab="yes" />
