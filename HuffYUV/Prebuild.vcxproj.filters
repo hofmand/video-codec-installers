@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="sources\HuffYUV.rar">
+    <CustomBuild Include="sources\HuffYUV64.zip">
       <Filter>Source Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="sources\HuffYUV64.zip">
+    <CustomBuild Include="sources\huffyuv-2.1.1.zip">
       <Filter>Source Files</Filter>
     </CustomBuild>
   </ItemGroup>

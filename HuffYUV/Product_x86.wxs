@@ -3,7 +3,7 @@
 	<?include Include_common.wxi ?>
 
 	<?define HuffYUV_Platform = "x86" ?>
-	<?define HuffYUV_SourceDir = "$(var.Plugins_UnpackDir)\HuffYUV" ?>
+	<?define HuffYUV_SourceDir = "$(var.Plugins_UnpackDir)\huffyuv-2.1.1" ?>
 	<?define HuffYUV_DllInputName = "huffyuv.dll" ?>
 	<?define HuffYUV_DllOutputName = "huffyuv.dll" ?>
 	<?define HuffYUV_CodecID = "HFYU" ?>

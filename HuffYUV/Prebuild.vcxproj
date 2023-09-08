@@ -21,32 +21,32 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D7300283-A044-4FC1-A3CF-096DE4C426B2}</ProjectGuid>
     <RootNamespace>Prebuild</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -110,21 +110,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="sources\HuffYUV.rar">
-      <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"%ProgramW6432%\7-Zip"\7z x -o"obj\%(Filename)" -y "%(Identity)"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Unpacking "%(Identity)"</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj\%(Filename)\huffyuv.dll;obj\%(Filename)\huffyuv.inf</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"%ProgramW6432%\7-Zip"\7z x -o"obj\%(Filename)" -y "%(Identity)"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Unpacking "%(Identity)"</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj\%(Filename)\huffyuv.dll;obj\%(Filename)\huffyuv.inf</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"%ProgramW6432%\7-Zip"\7z x -o"obj\%(Filename)" -y "%(Identity)"</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"%ProgramW6432%\7-Zip"\7z x -o"obj\%(Filename)" -y "%(Identity)"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Unpacking "%(Identity)"</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Unpacking "%(Identity)"</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj\%(Filename)\huffyuv.dll;obj\%(Filename)\huffyuv.inf</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj\%(Filename)\huffyuv.dll;obj\%(Filename)\huffyuv.inf</Outputs>
-    </CustomBuild>
     <CustomBuild Include="sources\HuffYUV64.zip">
       <FileType>Document</FileType>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"%ProgramW6432%\7-Zip"\7z x -o"obj\%(Filename)" -y "%(Identity)"</Command>
@@ -139,6 +124,17 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"%ProgramW6432%\7-Zip"\7z x -o"obj\%(Filename)" -y "%(Identity)"</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj\%(Filename)\huffyuv.dll;obj\%(Filename)\huffyuv.inf</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj\%(Filename)\huffyuv.dll;obj\%(Filename)\huffyuv.inf</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="sources\huffyuv-2.1.1.zip">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"%ProgramW6432%\7-Zip"\7z x -o"obj\%(Filename)" -y "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"%ProgramW6432%\7-Zip"\7z x -o"obj\%(Filename)" -y "%(Identity)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Unpacking "%(Identity)"</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Unpacking "%(Identity)"</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj\%(Filename)\huffyuv.dll;obj\%(Filename)\huffyuv.inf;obj\%(Filename)\read,e/txt</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj\%(Filename)\huffyuv.dll;obj\%(Filename)\huffyuv.inf;obj\%(Filename)\read,e/txt</Outputs>
     </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
