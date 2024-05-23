@@ -7,7 +7,7 @@ A modern pair of MS-Windows installers (x86/x64) for the HuffYUV lossless video 
 To install:
 
 1. Download the `.msi` file that matches your VirtualDub ('x86' or 'x64') from [releases](https://github.com/hofmand/video-codec-installers/releases).
-2. Press the Windows key, type `cmd`, find the "Command Prompt" App, and click "Run As Administrator".
+2. Press the Windows key, type `cmd`, find the "Command Prompt" or "cmd.exe" App, and click "Run As Administrator". *You may need to right click on "Command Prompt" or "cmd.exe" to find "Run As Administrator".*
 3. In the command prompt, switch to the directory where you downloaded the `.msi` file, then type in the name of the `.msi` file to run it. For example:
 ```
 cd C:\Users\hofmand\Downloads
